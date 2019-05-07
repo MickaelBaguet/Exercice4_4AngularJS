@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="script.js"></script>
+  <title>Exercice 4</title>
+</head>
+<!-- Ajout du ng-app pour que angular soit dans tout le body -->
+<body ng-app ="myApp">
+  <div class="container-fluid text-center">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-3">Exercice 4</h1>
+        <p class="lead">Partie 4</p>
+        <p>Faire une page HTML permettant d'afficher la liste des voitures et leur couleur du fichier voiture.json uniquement si la couleur n'est pas verte.</p>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center" ng-controller="carCtrl">
+      <table class="table" cellspacing="2px" cellpadding="2px;" rules="all" style="border:solid 1px black;">
+        <thead>
+          <th>Marque</th>
+          <th>Couleur</th>
+        </thead>
+        <!-- On répète pour chaque ligne de marques(data de voiture.json)  -->
+        <!-- Et on affiche si la couleur n'est pas verte (ng-if) -->
+        <tr ng-repeat="x in marques" ng-if="x.couleur != 'verte'">
+          <td>
+            {{x.marque}}
+          </td>
+          <td>
+            {{x.couleur}}
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
